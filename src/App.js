@@ -1,9 +1,11 @@
+import Counter from "./components/counter-app/Counter";
+
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <span>hello world</span>
+      <Counter />
     </div>
   );
 }
