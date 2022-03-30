@@ -6,16 +6,38 @@ import EnzymeAdapter from "@wojtekmaj/enzyme-adapter-react-17";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
+const setup = (props = {}, state = null) => {
+   return shallow(<Counter {...props} />);
+};
+
+const findElement = (wrapper, val) => {
+   return wrapper.find(`[data-test="${val}"]`);
+};
+
 test("Renders without error", () => {
-   const wrapper = shallow(<Counter />);
-   const appComponent = wrapper.find("[data-test='component-counter']");
+   const wrapper = setup();
+   const appComponent = findElement(wrapper, "component-counter");
    expect(appComponent.length).toBe(1);
 });
 
-test("Renders increment button.", () => {});
+test("Renders increment button.", () => {
+   const wrapper = setup();
+   const appComponent = findElement(
+      wrapper,
+      "component-counter-increment-button"
+   );
+   expect(appComponent.length).toBe(1);
+});
 
-test("Renders counter display", () => {});
+test("Renders counter display", () => {
+   const wrapper = setup();
+   const appComponent = findElement(wrapper, "component-counter-display");
+   expect(appComponent.length).toBe(1);
+});
 
-test("Counter starts at 0", () => {});
+test("Mock useState testing", () => {
+   React.useState = jest.fn().mockReturnValue([0, {}]);
+   const wrapper = setup();
+});
 
 test("Clicking increment button increments counter display", () => {});

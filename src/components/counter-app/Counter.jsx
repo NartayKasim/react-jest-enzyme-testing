@@ -10,8 +10,17 @@ export default function Counter() {
    };
    return (
       <div className={classes.counter} data-test="component-counter">
-         <div className={classes.counterDisplay}>{counter}</div>
-         <button className={classes.incrementButton} onClick={onIncrementClick}>
+         <div
+            className={classes.counterDisplay}
+            data-test="component-counter-display"
+         >
+            {counter}
+         </div>
+         <button
+            className={classes.incrementButton}
+            data-test="component-counter-increment-button"
+            onClick={onIncrementClick}
+         >
             Increment
          </button>
       </div>
