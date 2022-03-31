@@ -15,7 +15,7 @@ export default function GuessedWords(props) {
          {props.guessedWords.length > 0 && (
             <div data-test={"guessed-words"}>
                {props.guessedWords.map((word) => (
-                  <span key={word}>
+                  <span key={word} data-test={"guessed-word"}>
                      {word.guessedWord}: {word.letterMatchCount}
                   </span>
                ))}

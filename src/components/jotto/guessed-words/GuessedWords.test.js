@@ -36,9 +36,7 @@ describe("If there are no words guessed", () => {
 describe("If there are words guessed", () => {
    let wrapper;
    beforeEach(() => {
-      wrapper = setup({
-         guessedWords: [{ guessedWord: "testGuestWord", letterMatchCount: 3 }],
-      });
+      wrapper = setup();
    });
 
    test("Renders without error", () => {
@@ -49,5 +47,19 @@ describe("If there are words guessed", () => {
    test("Renders guessed words array", () => {
       const guessedWords = findByTestAttribute(wrapper, "guessed-words");
       expect(guessedWords.length).toBe(1);
+   });
+});
+
+describe("There are multiple words guessed", () => {
+   const guessedWords = [
+      { guessedWord: "putty", letterMatchCount: 1 },
+      { guessedWord: "umbral", letterMatchCount: 2 },
+      { guessedWord: "universal", letterMatchCount: 3 },
+   ];
+   const wrapper = setup({ guessedWords });
+
+   test("Guessed words renders three children", () => {
+      const children = findByTestAttribute(wrapper, "guessed-word");
+      expect(children.length).toBe(3);
    });
 });
