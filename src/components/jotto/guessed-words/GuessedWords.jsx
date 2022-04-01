@@ -24,9 +24,9 @@ export default function GuessedWords(props) {
                      </tr>
                   </thead>
                   <tbody>
-                     {props.guessedWords.map((word) => (
-                        <tr key={word} data-test={"guessed-word"}>
-                           <td>{word.guessedWord}</td>{" "}
+                     {props.guessedWords.map((word, idx) => (
+                        <tr key={idx} data-test={"guessed-word"}>
+                           <td>{word.guessedWord}</td>
                            <td>{word.letterMatchCount}</td>
                         </tr>
                      ))}
