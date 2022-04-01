@@ -7,6 +7,7 @@ export default function GuessedWords(props) {
       <div
          data-test={"component-guessed-words"}
          className={classes.guessedWords}
+         style={{ display: "flex", justifyContent: "center" }}
       >
          {props.guessedWords.length === 0 && (
             <span data-test={"instructions"}>Try to guess the word!</span>

@@ -9,7 +9,13 @@ function App() {
       <div className="App">
          <Counter />
          <Congrats success={false} />
-         <GuessedWords guessedWords={[]} />
+         <GuessedWords
+            guessedWords={[
+               { guessedWord: "putty", letterMatchCount: 1 },
+               { guessedWord: "umbral", letterMatchCount: 2 },
+               { guessedWord: "universal", letterMatchCount: 3 },
+            ]}
+         />
       </div>
    );
 }
