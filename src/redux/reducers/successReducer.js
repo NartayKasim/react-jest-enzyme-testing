@@ -1,5 +1,7 @@
-const initialState = {};
+const initialState = {
+   success: false,
+};
 
-export default function successReducer(state, action) {
-   return null;
+export default function successReducer(state = initialState, action) {
+   return {};
 }
