@@ -14,11 +14,23 @@ export default function GuessedWords(props) {
 
          {props.guessedWords.length > 0 && (
             <div data-test={"guessed-words"}>
-               {props.guessedWords.map((word) => (
-                  <span key={word} data-test={"guessed-word"}>
-                     {word.guessedWord}: {word.letterMatchCount}
-                  </span>
-               ))}
+               <h3>Guessed Words:</h3>
+               <table>
+                  <thead>
+                     <tr>
+                        <th>Guess</th>
+                        <th>Matching Letters</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     {props.guessedWords.map((word) => (
+                        <tr key={word} data-test={"guessed-word"}>
+                           <td>{word.guessedWord}</td>{" "}
+                           <td>{word.letterMatchCount}</td>
+                        </tr>
+                     ))}
+                  </tbody>
+               </table>
             </div>
          )}
       </div>
